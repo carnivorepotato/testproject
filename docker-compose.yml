@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    depends_on:
+      - postgres
+    build: /dockerfile
+    networks:
+      - bridge
+    ports:
+      - '1010:1010'
+  postgres:
+    image: postgres:15
+    networks:
+      - bridge
+    ports:
+      - '1011:1011'
+networks:
+  bridge: {}
