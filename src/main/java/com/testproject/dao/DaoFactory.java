@@ -1,7 +1,5 @@
 package com.testproject.dao;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,13 +10,11 @@ import org.springframework.stereotype.Component;
 public class DaoFactory {
 
     private NewspaperRepository repository;
-    private Logger logger;
 
     @Bean
-    public CommandLineRunner init(NewspaperRepository repository) {
+    public CommandLineRunner initDaoFactory(NewspaperRepository repository) {
         return args -> {
             this.repository = repository;
-            this.logger = LoggerFactory.getLogger(DaoFactory.class);
         };
     }
 

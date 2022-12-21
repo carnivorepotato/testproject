@@ -3,4 +3,5 @@ RUN mkdir /app
 ADD . /app
 WORKDIR /app
 EXPOSE 1010
-RUN mvn install spring-boot:run
+RUN mvn install
+CMD ["mvn", "spring-boot:run"]
