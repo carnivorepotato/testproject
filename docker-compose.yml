@@ -1,18 +1,29 @@
 version: '3.8'
 services:
   app:
-    depends_on:
-      - postgres
-    build: /dockerfile
+#    depends_on:
+#      - postgres
+    build:
+      dockerfile: dockerfile
+    container_name: app
     networks:
       - bridge
     ports:
       - '1010:1010'
-  postgres:
-    image: postgres:15
-    networks:
-      - bridge
-    ports:
-      - '1011:1011'
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/newspaper
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+
+#  postgres:
+#    image: postgres:13.1-alpine
+#    container_name: postgres
+#    networks:
+#      - bridge
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+
 networks:
   bridge: {}
