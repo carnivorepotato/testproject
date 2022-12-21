@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="epaperRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "deviceInfo" type = "DeviceInfoType" minOccurs = "1" maxOccurs = "unbounded"/>
+                <xs:element name = "getPages" type = "GetPagesType" minOccurs = "1" maxOccurs = "unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="DeviceInfoType">
+        <xs:sequence>
+            <xs:element name = "screenInfo" type = "ScreenInfoType" minOccurs = "1" maxOccurs = "unbounded"/>
+            <xs:element name = "osInfo" type = "OsInfoType" minOccurs = "1" maxOccurs = "unbounded"/>
+            <xs:element name = "appInfo" type = "AppInfoType" minOccurs = "1" maxOccurs = "unbounded"/>
+        </xs:sequence>
+        <xs:attribute name = "name" type="xs:string"/>
+        <xs:attribute name = "id" type = "xs:string"/>
+    </xs:complexType>
+    <xs:complexType name = "ScreenInfoType">
+        <xs:attribute name = "width" type = "xs:int"/>
+        <xs:attribute name = "height" type = "xs:int"/>
+        <xs:attribute name = "dpi" type = "xs:int"/>
+    </xs:complexType>
+    <xs:complexType name = "OsInfoType">
+        <xs:attribute name = "name" type = "xs:string"/>
+        <xs:attribute name = "version" type = "xs:decimal"/>
+    </xs:complexType>
+    <xs:complexType name = "AppInfoType">
+        <xs:sequence>
+            <xs:element name = "newspaperName" type = "xs:string"/>
+            <xs:element name = "version" type = "xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name = "GetPagesType">
+        <xs:attribute name = "editionDefId" type = "xs:int"/>
+        <xs:attribute name = "publicationDate" type = "xs:date"/>
+    </xs:complexType>
+</xs:schema>
+

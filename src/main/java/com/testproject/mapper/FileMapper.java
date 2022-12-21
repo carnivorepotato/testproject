@@ -8,5 +8,5 @@ import java.io.IOException;
 
 public interface FileMapper {
 
-    EpaperRequest map(MultipartFile input) throws IOException, JAXBException;
+    EpaperRequest validateAmdMap(MultipartFile input) throws IOException, JAXBException;
 }

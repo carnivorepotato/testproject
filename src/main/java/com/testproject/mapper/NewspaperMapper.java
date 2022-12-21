@@ -21,7 +21,7 @@ public abstract class NewspaperMapper {
     public Newspaper map(MultipartFile source) {
         Newspaper result;
         try {
-            EpaperRequest temp = fileMapper.map(source);
+            EpaperRequest temp = fileMapper.validateAmdMap(source);
             result = map(temp, source.getOriginalFilename());
         } catch (IOException | JAXBException e) {
             throw new RuntimeException(e);
